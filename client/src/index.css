@@ -1,0 +1,9 @@
+body { font-family: system-ui, sans-serif; background: #f4f6fa; margin: 0; }
+main { max-width: 640px; margin: 2rem auto; padding: 0 1rem; }
+form { display: flex; gap: .5rem; margin-bottom: 1rem; }
+input { flex: 1; padding: .5rem; }
+button { padding: .45rem .8rem; cursor: pointer; }
+ul { list-style: none; padding: 0; }
+li { display: flex; gap: .5rem; align-items: center; background: #fff; padding: .6rem; margin-bottom: .4rem; border-radius: 6px; }
+li span { flex: 1; }
+[role="alert"] { color: #b00020; }

@@ -1,0 +1,34 @@
+# Development stack: builds images from the local source.
+name: mern-tasks
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 10s
+      retries: 6
+      start_period: 20s
+
+  server:
+    build: ./server
+    restart: unless-stopped
+    env_file: .env
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  client:
+    build: ./client
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-3000}:80"
+    depends_on:
+      - server
+
+volumes:
+  mongo-data:

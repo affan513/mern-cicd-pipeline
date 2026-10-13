@@ -28,7 +28,7 @@ describe('API', () => {
 
   test('TC2 create task with valid title', async () => {
     const res = await request(app).post('/api/tasks').send({ title: 'Write report' });
-    expect(res.status).toBe(200);
+    expect(res.status).toBe(201);
     expect(res.body._id).toBeDefined();
     expect(res.body.status).toBe('todo');
   });

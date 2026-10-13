@@ -5,7 +5,7 @@ COMPOSE="${COMPOSE:-docker-compose -f docker-compose.prod.yml}"
 
 i=1
 while [ "$i" -le 18 ]; do
-  if $COMPOSE exec -T client wget -q -O- http://localhost/api/health | grep -q '"status":"ok"'; then
+  if $COMPOSE exec -T client wget -q -O- http://127.0.0.1/api/health | grep -q '"status":"ok"'; then
     echo "Smoke test passed: API and database are healthy."
     exit 0
   fi

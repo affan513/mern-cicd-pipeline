@@ -44,7 +44,7 @@ export default function App() {
 
   return (
     <main>
-      <h1>Task Manager-G29</h1>
+      <h1>Task Manager-Group29</h1>
       <form onSubmit={handleAdd}>
         <input
           aria-label="Task title"
